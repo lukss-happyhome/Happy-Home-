@@ -3,21 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Home - ბინები ბათუმში 🏝️</title>
+  <title>Happy Home - ბათუმი</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f0f4f8;
       margin: 0;
       padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     header {
       background: #008080;
-      color: #fff;
-      padding: 20px 10px;
+      color: white;
+      padding: 20px;
       text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     header h1 {
@@ -25,68 +27,60 @@
       font-size: 2em;
     }
 
-    header p {
-      margin: 5px 0 0 0;
-      font-size: 1.1em;
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
     }
 
-    #listings {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 0 15px;
-    }
-
-    .listing {
-      background: #fff;
-      border-radius: 15px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .listing:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-
-    .listing h3 {
-      margin: 0 0 10px 0;
+    main p {
+      font-size: 1.2em;
       color: #333;
-      font-size: 1.3em;
+      max-width: 700px;
+      line-height: 1.6;
+      margin-bottom: 30px;
     }
 
-    .listing p {
-      margin: 5px 0;
-      color: #555;
-      line-height: 1.5;
+    .contact-buttons {
+      display: flex;
+      gap: 20px;
     }
 
-    .listing a {
+    .contact-buttons a {
       display: inline-block;
-      margin-top: 10px;
-      color: #008080;
-      font-weight: bold;
+      padding: 12px 20px;
+      border-radius: 10px;
+      color: white;
       text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s;
     }
 
-    .listing a:hover {
-      text-decoration: underline;
+    .contact-buttons a.whatsapp {
+      background: #25D366;
+    }
+
+    .contact-buttons a.whatsapp:hover {
+      background: #1ebe5b;
+    }
+
+    .contact-buttons a.telegram {
+      background: #0088cc;
+    }
+
+    .contact-buttons a.telegram:hover {
+      background: #0077b3;
     }
 
     footer {
       background: #008080;
-      color: #fff;
+      color: white;
       text-align: center;
-      padding: 15px 10px;
-      margin-top: 40px;
-      box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
-    }
-
-    @media (max-width: 600px) {
-      .listing {
-        padding: 15px;
-      }
+      padding: 15px;
     }
   </style>
 </head>
@@ -94,63 +88,26 @@
 
   <header>
     <h1>Happy Home 🏠</h1>
-    <p>ბოლო განცხადებები Telegram არხიდან</p>
   </header>
 
-  <div id="listings">
-    <p>იტვირთება განცხადებები...</p>
-  </div>
+  <main>
+    <p>
+      ჩვენი კომპანია Happy Home სპეციალიზირებულია ბინების გაყიდვასა და ქირავნაში ბათუმში. 
+      ჩვენ ვთავაზობთ სწრაფ, მარტივ და უსაფრთხო მომსახურებას, რათა თქვენი საცხოვრებელი მოთხოვნები სრულად დაკმაყოფილდეს.
+    </p>
+
+    <div class="contact-buttons">
+      <!-- WhatsApp -->
+      <a class="whatsapp" href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank">WhatsApp</a>
+
+      <!-- Telegram -->
+      <a class="telegram" href="https://t.me/YOUR_TELEGRAM_USERNAME" target="_blank">Telegram</a>
+    </div>
+  </main>
 
   <footer>
-    <p>© 2025 Happy Home • ბინები ბათუმში 🏝️</p>
+    <p>© 2025 Happy Home • ბათუმი 🏝️</p>
   </footer>
-
-  <script>
-    async function loadListings() {
-      try {
-        // RSSHub ბმული Telegram არხისთვის
-        const response = await fetch("https://rsshub.app/telegram/channel/happyhome_apartmets");
-        const text = await response.text();
-
-        const parser = new DOMParser();
-        const xml = parser.parseFromString(text, "text/xml");
-        const items = xml.querySelectorAll("item");
-
-        const container = document.getElementById("listings");
-        container.innerHTML = "";
-
-        items.forEach((item, index) => {
-          if (index < 5) { // ბოლო 5 განცხადება
-            const title = item.querySelector("title")?.textContent || "განცხადება";
-            const description = item.querySelector("description")?.textContent || "";
-            const link = item.querySelector("link")?.textContent || "#";
-
-            const div = document.createElement("div");
-            div.className = "listing";
-            div.innerHTML = `
-              <h3>${title}</h3>
-              <p>${description}</p>
-              <a href="${link}" target="_blank">ნახვა Telegram-ზე</a>
-            `;
-            container.appendChild(div);
-          }
-        });
-
-      } catch (error) {
-        // RSS ვერ ჩაიტვირთა → Backup ტექსტი
-        document.getElementById("listings").innerHTML = `
-          <div class="listing">
-            <h3>ბინები ბათუმში 🏝️</h3>
-            <p>ბინები იხილეთ პირდაპირ ჩვენს Telegram არხზე:</p>
-            <a href="https://t.me/happyhome_apartmets" target="_blank">ნახვა არხში</a>
-          </div>
-        `;
-        console.error("RSS ვერ ჩაიტვირთა:", error);
-      }
-    }
-
-    loadListings();
-  </script>
 
 </body>
 </html>
