@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAPPY HOME - უძრავი ქონება</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+
+    header {
+      background: url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+    header h1 { font-size: 3rem; background: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px; }
+    header p { font-size: 1.3rem; margin-top: 15px; background: rgba(0,0,0,0.4); padding: 10px; border-radius: 5px; }
+
+    section { padding: 50px 20px; max-width: 1100px; margin: auto; }
+    h2 { text-align: center; font-size: 2rem; margin-bottom: 20px; color: #0077b6; }
+
+    .cities {
+      display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap;
+    }
+    .city {
+      background: #f0f8ff; padding: 20px; border-radius: 12px; flex: 1; min-width: 300px; text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .city h3 { color: #023e8a; margin-bottom: 10px; }
+
+    .services {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px; margin-top: 20px;
+    }
+    .service {
+      background: #fdfdfd; padding: 20px; border-radius: 12px; text-align: center;
+      border: 1px solid #ddd; transition: 0.3s;
+    }
+    .service:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+
+    footer {
+      background: #023e8a; color: white; padding: 30px 20px; text-align: center;
+    }
+    footer a {
+      display: inline-block; margin: 10px; padding: 12px 20px; background: #0077b6;
+      color: white; text-decoration: none; border-radius: 8px; transition: 0.3s;
+    }
+    footer a:hover { background: #0096c7; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>HAPPY HOME</h1>
+    <p>თქვენი სანდო პარტნიორი უძრავ ქონებაში თბილისში და ბათუმში</p>
+  </header>
+
+  <section>
+    <h2>ჩვენი კომპანია</h2>
+    <p style="text-align:center; max-width:800px; margin:auto;">
+      HAPPY HOME არის უძრავი ქონების სააგენტო, რომელიც გთავაზობთ ბინების ყიდვა-გაყიდვას, გაქირავებას და პროფესიონალურ კონსულტაციას. 
+      ჩვენი მიზანია, რომ თქვენ იპოვოთ იდეალური ბინა, იქნება ეს თბილისიში თუ ბათუმში.
+    </p>
+  </section>
+
+  <section>
+    <h2>ქალაქები</h2>
+    <div class="cities">
+      <div class="city">
+        <h3>თბილისი</h3>
+        <p>ბინები ქალაქის ცენტრალურ და პოპულარულ უბნებში.</p>
+      </div>
+      <div class="city">
+        <h3>ბათუმი</h3>
+        <p>ზღვისპირა ბინები საუკეთესო ხედებით და პირობებით.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>ჩვენი სერვისები</h2>
+    <div class="services">
+      <div class="service">
+        <h3>ბინების გაყიდვა</h3>
+        <p>იპოვეთ და შეიძინეთ თქვენთვის იდეალური ბინა.</p>
+      </div>
+      <div class="service">
+        <h3>გაქირავება</h3>
+        <p>მოკლე და გრძელვადიანი ქირავნობა.</p>
+      </div>
+      <div class="service">
+        <h3>კონსულტაცია</h3>
+        <p>პირადი რჩევები და დახმარება უძრავ ქონებაში.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <h2>დაგვიკავშირდით</h2>
+    <p>ტელ: <a href="tel:+995599913940">+995 599 913 940</a></p>
+    <a href="https://wa.me/995599913940" target="_blank">WhatsApp</a>
+    <a href="https://t.me/happyhome_apartmets" target="_blank">Telegram Channel</a>
+  </footer>
+
+</body>
+</html>
