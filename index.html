@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAPPY HOME - უძრავი ქონება</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { line-height: 1.6; background: #f6f9fb; color: #333; }
+    a { text-decoration: none; }
+
+    header {
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1600&q=80') no-repeat center/cover;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #f2f2f2;
+    }
+
+    header h1 { font-size: 3rem; background: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px; }
+    header p { font-size: 1.3rem; margin-top: 15px; background: rgba(0,0,0,0.4); padding: 10px; border-radius: 5px; }
+
+    .lang-select {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+    }
+    .lang-select button {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.7);
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .lang-select button.active { background: #0ea5a4; color: white; }
+
+    section { padding: 50px 20px; max-width: 1100px; margin: auto; }
+    h2 { text-align: center; font-size: 2rem; margin-bottom: 20px; color: #0077b6; }
+
+    .cities { display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap; }
+    .city { background: #f0f8ff; padding: 20px; border-radius: 12px; flex: 1; min-width: 300px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .city h3 { color: #023e8a; margin-bottom: 10px; }
+
+    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 20px; margin-top: 20px; }
+    .service { background: #fdfdfd; padding: 20px; border-radius: 12px; text-align: center; border: 1px solid #ddd; transition: 0.3s; }
+    .service:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+
+    footer { background: #023e8a; color: white; padding: 30px 20px; text-align: center; }
+    footer a { display: inline-block; margin: 10px; padding: 12px 20px; background: #0077b6; color: white; border-radius: 8px; transition: 0.3s; }
+    footer a:hover { background: #0096c7; }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="lang-select">
+      <button class="active" data-lang="ka">KA</button>
+      <button data-lang="en">EN</button>
+      <button data-lang="ru">RU</button>
+    </div>
+    <h1 data-text-ka="HAPPY HOME" data-text-en="HAPPY HOME" data-text-ru="HAPPY HOME">HAPPY HOME</h1>
+    <p data-text-ka="თქვენი სანდო პარტნიორი უძრავ ქონებაში თბილისში და ბათუმში"
+       data-text-en="Your trusted partner in real estate in Tbilisi and Batumi"
+       data-text-ru="Ваш надежный партнер по недвижимости в Тбилиси и Батуми">
+      თქვენი სანდო პარტნიორი უძრავ ქონებაში თბილისში და ბათუმში
+    </p>
+  </header>
+
+  <section>
+    <h2 data-text-ka="ჩვენი კომპანია" data-text-en="Our Company" data-text-ru="Наша компания">ჩვენი კომპანია</h2>
+    <p style="text-align:center; max-width:800px; margin:auto;"
+       data-text-ka="HAPPY HOME არის უძრავი ქონების სააგენტო, რომელიც გთავაზობთ ბინების ყიდვა-გაყიდვას, გაქირავებას და პროფესიონალურ კონსულტაციას."
+       data-text-en="HAPPY HOME is a real estate agency offering buying, selling, renting, and professional consultations."
+       data-text-ru="HAPPY HOME — агентство недвижимости, предлагающее покупку, продажу, аренду и профессиональные консультации.">
+      HAPPY HOME არის უძრავი ქონების სააგენტო, რომელიც გთავაზობთ ბინების ყიდვა-გაყიდვას, გაქირავებას და პროფესიონალურ კონსულტაციას.
+    </p>
+  </section>
+
+  <section>
+    <h2 data-text-ka="ქალაქები" data-text-en="Cities" data-text-ru="Города">ქალაქები</h2>
+    <div class="cities">
+      <div class="city">
+        <h3 data-text-ka="თბილისი" data-text-en="Tbilisi" data-text-ru="Тбилиси">თბილისი</h3>
+        <p data-text-ka="ბინები ქალაქის ცენტრალურ და პოპულარულ უბნებში."
+           data-text-en="Apartments in the central and popular districts."
+           data-text-ru="Квартиры в центральных и популярных районах.">
+          ბინები ქალაქის ცენტრალურ და პოპულარულ უბნებში.
+        </p>
+      </div>
+      <div class="city">
+        <h3 data-text-ka="ბათუმი" data-text-en="Batumi" data-text-ru="Батуми">ბათუმი</h3>
+        <p data-text-ka="ზღვისპირა ბინები საუკეთესო ხედებით და პირობებით."
+           data-text-en="Seaside apartments with the best views and conditions."
+           data-text-ru="Квартиры у моря с лучшими видами и условиями.">
+          ზღვისპირა ბინები საუკეთესო ხედებით და პირობებით.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-text-ka="ჩვენი სერვისები" data-text-en="Our Services" data-text-ru="Наши услуги">ჩვენი სერვისები</h2>
+    <div class="services">
+      <div class="service">
+        <h3 data-text-ka="ბინების გაყიდვა" data-text-en="Apartment Sales" data-text-ru="Продажа квартир">ბინების გაყიდვა</h3>
+        <p data-text-ka="იპოვეთ და შეიძინეთ თქვენთვის იდეალური ბინა."
+           data-text-en="Find and purchase your perfect apartment."
+           data-text-ru="Найдите и купите свою идеальную квартиру.">
+          იპოვეთ და შეიძინეთ თქვენთვის იდეალური ბინა.
+        </p>
+      </div>
+      <div class="service">
+        <h3 data-text-ka="გაქირავება" data-text-en="Renting" data-text-ru="Аренда">გაქირავება</h3>
+        <p data-text-ka="მოკლე და გრძელვადიანი ქირავნობა."
+           data-text-en="Short and long-term rentals."
+           data-text-ru="Краткосрочная и долгосрочная аренда.">
+          მოკლე და გრძელვადიანი ქირავნობა.
+        </p>
+      </div>
+      <div class="service">
+        <h3 data-text-ka="კონსულტაცია" data-text-en="Consultation" data-text-ru="Консультация">კონსულტაცია</h3>
+        <p data-text-ka="პირადი რჩევები და დახმარება უძრავ ქონებაში."
+           data-text-en="Personal advice and assistance in real estate."
+           data-text-ru="Персональные советы и помощь в недвижимости.">
+          პირადი რჩევები და დახმარება უძრავ ქონებაში.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <h2 data-text-ka="დაგვიკავშირდით" data-text-en="Contact Us" data-text-ru="Свяжитесь с нами">დაგვიკავშირდით</h2>
+    <p>ტელ: <a href="tel:+995599913940">+995 599 913 940</a></p>
+    <a href="https://wa.me/995599913940" target="_blank">WhatsApp</a>
+    <a href="https://t.me/happyhome_apartmets" target="_blank">Telegram Channel</a>
+  </footer>
+
+  <script>
+    // ენების ფუნქციონალი
+    const buttons = document.querySelectorAll('.lang-select button');
+    const elements = document.querySelectorAll('[data-text-ka]');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        elements.forEach(el => {
+          el.textContent = el.getAttribute(`data-text-${lang}`);
+        });
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
